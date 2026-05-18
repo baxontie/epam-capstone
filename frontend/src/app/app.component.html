@@ -1,0 +1,78 @@
+<div class="container">
+
+  <div class="header">
+    <h1>Intelligent Enterprise Documentation Assistant</h1>
+    <p>
+      Multi-Agent RAG Platform with Enterprise Knowledge Base and Web Search Fallback
+    </p>
+  </div>
+
+  <div class="search-box">
+
+    <textarea
+      [(ngModel)]="question"
+      placeholder="Ask an enterprise question..."
+    ></textarea>
+
+    <button (click)="askQuestion()" [disabled]="loading">
+      {{ loading ? 'Processing...' : 'Ask AI Assistant' }}
+    </button>
+
+  </div>
+
+  <div *ngIf="response" class="response-container">
+
+    <div class="answer-card">
+
+      <h2>AI Response</h2>
+
+      <p>{{ response.answer }}</p>
+
+    </div>
+
+    <div class="workflow-card">
+
+      <h2>Agent Workflow</h2>
+
+      <div
+        class="workflow-item"
+        *ngFor="let item of response.workflow"
+      >
+
+        <strong>{{ item.agent }}</strong>
+
+        <span>
+          Status: {{ item.status }}
+        </span>
+
+        <span *ngIf="item.route">
+          Route: {{ item.route }}
+        </span>
+
+        <span *ngIf="item.documents_found">
+          Documents: {{ item.documents_found }}
+        </span>
+
+        <span *ngIf="item.sources_found">
+          Sources: {{ item.sources_found }}
+        </span>
+
+      </div>
+
+    </div>
+
+    <div class="citations-card">
+
+      <h2>Citations</h2>
+
+      <ul>
+        <li *ngFor="let citation of response.citations">
+          {{ citation }}
+        </li>
+      </ul>
+
+    </div>
+
+  </div>
+
+</div>

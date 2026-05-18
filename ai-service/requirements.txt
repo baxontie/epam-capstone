@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+langchain
+langgraph
+langchain-community
+qdrant-client
+ollama
+tavily-python
+pytest
+requests
