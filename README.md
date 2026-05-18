@@ -104,8 +104,6 @@ Workflow Trace + Citations
 ## Backend
 - Python
 - FastAPI
-- LangChain
-- LangGraph
 
 ---
 
@@ -263,7 +261,7 @@ The platform provides:
 # Future Improvements
 
 Potential future enhancements:
-- advanced LangGraph orchestration
+- graph-based workflow orchestration
 - streaming responses
 - authentication & RBAC
 - feedback/rating systems
